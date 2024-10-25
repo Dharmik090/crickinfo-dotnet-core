@@ -1,0 +1,29 @@
+﻿@model List<crickinfo_mvc_ef_core.Models.PointsTable>
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Team Name</th>
+            <th>Points</th>
+            <th>Net Run Rate (NRR)</th>
+            <th>Wins</th>
+            <th>Loses</th>  
+            <th>Draws</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(item.Team != null ? item.Team.TeamId : "No Team Name")</td> 
+                <td>@item.Points</td>
+                <td>@item.NRR</td>
+                <td>@item.Wins</td>
+                <td>@item.Lose</td>
+                <td>@item.Draw</td>
+            </tr>
+        }
+    </tbody>
+</table>

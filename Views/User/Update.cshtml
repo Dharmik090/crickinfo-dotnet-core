@@ -1,0 +1,45 @@
+﻿@model crickinfo_mvc_ef_core.ViewModels.UserUpdateViewModel
+
+@{
+    ViewData["Title"] = "CricInfo - User";
+}
+
+
+<div class="mb-5 mt-5 container-fluid d-flex justify-content-center align-items-center">
+    <div class="card p-5 shadow-lg" style="max-width: 500px; width: 100%;">
+
+        <form asp-action="Update">
+            <h1 class="text-center mb-4" style="font-size: 2rem;">Update</h1>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input asp-for="Email" type="hidden" value="@Model.Email" />
+
+
+            <div class="form-group">
+                <label asp-for="Name" class="form-label d-block mt-2" style="font-size: 1.25rem;"></label>
+                <input asp-for="Name" class="form-control form-control-lg" placeholder="Enter Name" value="@Model.Name"/>
+                <span asp-validation-for="Name" class="text-danger small" style="font-size: 1rem;"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Password" class="form-label d-block mt-2" style="font-size: 1.25rem;"></label>
+                <input asp-for="Password" class="form-control form-control-lg" placeholder="Enter Password" value="@Model.Password" />
+                <span asp-validation-for="Password" class="text-danger small" style="font-size: 1rem;"></span>
+            </div>
+
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary mt-2" style="width: 50%;">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

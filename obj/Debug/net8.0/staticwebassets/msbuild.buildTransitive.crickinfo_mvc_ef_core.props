@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\crickinfo_mvc_ef_core.props" />
+</Project>

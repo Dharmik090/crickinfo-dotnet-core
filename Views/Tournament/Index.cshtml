@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "CricInfo - Tournaments";
+}
+
+<h1 class="display-4">Tournaments</h1>
+
+<div class="list-group">
+    @foreach (var tournament in Model)
+    {
+        <div class="card m-3 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">@tournament.Name</h5>
+                <p class="card-text">@tournament.Description</p>
+                <a href="@Url.Action("Details", "Tournament",new { id = tournament.Id })" class="btn btn-primary m-1">View Tournament</a>
+            </div>
+        </div>
+    }
+</div>
+
+
+

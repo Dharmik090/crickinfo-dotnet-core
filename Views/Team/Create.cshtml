@@ -1,0 +1,58 @@
+﻿@model crickinfo_mvc_ef_core.ViewModels.CreateTeamViewModel
+
+
+@{
+    ViewData["Title"] = "CricInfo - Team";
+}
+
+<div class="mb-5 mt-5 container-fluid d-flex justify-content-center align-items-center">
+    <div class="card p-5 shadow-lg" style="max-width: 500px; width: 100%;">
+
+        <form asp-action="Create">
+            <h1 class="text-center mb-4" style="font-size: 2rem;">Add Team</h1>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Team.Name" class="form-label d-block mt-2" style="font-size: 1.25rem;"></label>
+                <input asp-for="Team.Name" class="form-control form-control-lg" placeholder="Enter Name" />
+                <span asp-validation-for="Team.Name" class="text-danger small" style="font-size: 1rem;"></span>
+            </div>
+
+
+            <input asp-for="Team.Logo" type="hidden" value="0" />
+
+
+            <div class="d-flex justify-content-center mt-3">
+                <button type="submit" class="btn btn-primary" style="width: 50%;">Add Team</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<h4 class="mt-4 mb-2">Teams</h4>
+<div class="list-group mb-4">
+    @foreach (var team in Model.TeamList)
+    {
+        <div class="list-group-item m-2 p-3 border rounded shadow-sm">
+            <h5 class="mb-1">@team.Name</h5>
+            <!--
+            <div class="btn-group" role="group">
+                <a href="@Url.Action("Update","Matches", new { id = team.TeamId })" class="btn btn-secondary m-1">Update</a>
+                <a href="@Url.Action("Update","Matches", new { id = team.TeamId })" class="btn btn-danger m-1">Delete</a>
+            </div>
+            -->
+        </div>
+    }
+
+</div>
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

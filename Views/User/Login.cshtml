@@ -1,0 +1,45 @@
+﻿@model crickinfo_mvc_ef_core.Models.CreateModels.UserLogin
+
+@{
+    ViewData["Title"] = "CricInfo - User";
+}
+
+
+<div class="mb-5 mt-5 container-fluid d-flex justify-content-center align-items-center">
+    <div class="card p-5 shadow-lg" style="max-width: 500px; width: 100%;">
+
+        <form asp-action="Login">
+            <h1 class="text-center mb-4" style="font-size: 2rem;">Login</h1>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="form-group">
+                <label asp-for="Email" class="form-label d-block mt-2" style="font-size: 1.25rem;"></label>
+                <input asp-for="Email" class="form-control form-control-lg" placeholder="Enter Email" />
+                <span asp-validation-for="Email" class="text-danger small" style="font-size: 1rem;"></span>
+                <span asp-validation-for="Email" class="text-danger small" style="font-size: 1rem;">@ViewBag.EmailError</span>
+            </div>
+
+
+            <div class="mb-4">
+                <label asp-for="Password" class="form-label d-block mt-2" style="font-size: 1.25rem;"></label>
+                <input asp-for="Password" class="form-control form-control-lg" type="password" placeholder="Enter Password" />
+                <span asp-validation-for="Password" class="text-danger small" style="font-size: 1rem;"></span>
+                <span asp-validation-for="Email" class="text-danger small" style="font-size: 1rem;">@ViewBag.PasswordError</span>
+            </div>
+
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary" style="width: 50%;">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

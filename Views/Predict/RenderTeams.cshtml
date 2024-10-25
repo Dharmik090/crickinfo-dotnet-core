@@ -1,0 +1,31 @@
+﻿@model IEnumerable<crickinfo_mvc_ef_core.Models.Team>
+
+@{
+    ViewData["Title"] = "Teams";
+}
+
+<h1>Teams</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Team Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var team in Model)
+        {
+            <tr>
+                <td>@team.Name</td>
+                <td>
+                    <form asp-action="ExecutePredict" asp-controller="Predict" method="post">
+                        <input type="hidden" name="teamId" value="@team.TeamId" />
+                        <input type="hidden" name="tournamentId" value="@ViewBag.TournamentID" /> 
+                        <button type="submit" class="btn btn-primary">Predict</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

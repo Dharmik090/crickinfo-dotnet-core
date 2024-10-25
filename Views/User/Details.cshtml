@@ -1,0 +1,44 @@
+﻿@model crickinfo_mvc_ef_core.ViewModels.UserTournamentViewModel
+
+@{
+    ViewData["Title"] = "CricInfo - User";
+}
+
+<div class="mt-5 mb-5 row justify-content-center">
+    <div class="col-md-6">
+        <div class="card text-center shadow">
+            <div class="card-body">
+                <h3 class="card-title mt-3">@Model.User.Name</h3>
+                <p class="card-text">@Model.User.Email</p>
+                <a href="@Url.Action("Update","User", new { id = Model.User.Id })" class="btn btn-primary m-1">Edit Profile</a>
+                <a href="@Url.Action("Create","Tournament")" class="btn btn-primary m-1">Add Tournament</a>
+            </div>
+        </div>
+        <h4 class="mt-4 mb-4">Tournaments</h4>
+        <div class="list-group">
+            @if (Model.Tournaments != null && Model.Tournaments.Any())
+            {
+                foreach (var tournament in Model.Tournaments)
+                {
+                    <div class="list-group-item m-2 p-3 border rounded shadow-sm">
+                        <h5 class="mb-1">@tournament.Name</h5>
+                        <p class="mb-2 text-muted">@tournament.Description</p>
+                        <div class="btn-group" role="group">
+                            <a href="@Url.Action("Details", "PointsTable",new { id = tournament.Id })" class="btn btn-primary m-1">View Points Table</a>
+                            <a href="@Url.Action("Create", "Team",new { id = tournament.Id })" class="btn btn-secondary m-1">Add Teams</a>
+                            <a href="@Url.Action("Create","Matches", new { id = tournament.Id })" class="btn btn-secondary m-1">Add Matches</a>
+                            <a href="@Url.Action("Delete","Tournament", new { id = tournament.Id })" class="btn btn-danger m-1">Delete</a>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="text-center text-muted">No tournaments found.</p>
+            }
+        </div>
+
+    </div>
+</div>
+
+
