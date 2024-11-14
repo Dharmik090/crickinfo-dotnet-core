@@ -10,6 +10,21 @@ CrickInfo is a web application built with ASP.NET Core MVC and Entity Framework 
 - **Residual Graph Construction:** Constructs a bipartite graph for analysis.
 - **Interactive Prediction:** Visual representation of whether the selected team can top the table.
 
+
+## Home page
+![Home Page](./images/home.png)
+## Tournaments 
+![Tournaments](./images/tournaments.png)
+## User Profile
+![User Profile](./images/profile.png)
+## Add tournament
+![Add tournament](./images/add_tournament.png)
+## Add matches
+![Add Matches](./images/add_match.png)
+## Tournament details
+![Tournament details](./images/tournament_details.png)
+
+
 ## Key Components
 - **MVC Structure:** Built with the Model-View-Controller pattern.
 - **Entity Framework Core:** For database management to store teams, matches, and points data.
