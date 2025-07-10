@@ -11,6 +11,20 @@ CrickInfo is a web application built with ASP.NET Core MVC and Entity Framework 
 - **Interactive Prediction:** Visual representation of whether the selected team can top the table.
 
 
+## 🧮 Maximum Flow Prediction Algorithm
+
+### Algorithm Overview
+
+The prediction system uses **Maximum Flow on Bipartite Graphs** to determine if a team can mathematically finish in the top positions. This approach models the tournament as a flow network where:
+
+- **Source**: Connects to remaining matches
+- **Match Nodes**: Represent unplayed matches
+- **Team Nodes**: Represent each team
+- **Sink**: Connects to final positions
+
+![Maximum Flow Algorithm Explanation](images/Algo.png)
+
+
 ## Home page
 ![Home Page](./images/home.png)
 ## Tournaments 
@@ -30,9 +44,11 @@ CrickInfo is a web application built with ASP.NET Core MVC and Entity Framework 
 - **Entity Framework Core:** For database management to store teams, matches, and points data.
 - **Max-Flow Algorithm:** Calculates maximum possible flow to predict tournament outcomes.
 
+<!--
 ## Algorithm Explanation
 1. **Graph Construction:** Connect matches to participating teams and each team to a sink node.
 2. **Edge Capacities:** Each match-to-team edge has a capacity of 1 (win possibility). Team-to-sink edges have capacities based on max possible points.
 3. **Max Flow Calculation:** Calculates the maximum flow from source to sink.
 4. **Result Interpretation:** If the max-flow is equal to or exceeds the required points, the team can still top the tournament.
 
+-->
